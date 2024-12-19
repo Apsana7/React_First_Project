@@ -9,14 +9,14 @@ import { Carousel } from 'react-responsive-carousel';
 const Banner = () => {
     const banners = [
         {
-            image: 'images/image10.jpeg',
+            image: '/image10.jpeg',
             title: 'Fashion Sale',
             subtitle: 'Minimal Menz Style',
             description: 'Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.',
             button: 'Shop Now',
         },
         {
-            image: 'images/image7.jpg',
+            image: '/image7.jpg',
             title: 'Fashion Sale',
             subtitle: 'Minimal Menz Style',
             description: 'Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.',
