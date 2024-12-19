@@ -7,87 +7,83 @@ import { Carousel } from 'react-responsive-carousel';
 
 
 const Banner = () => {
-    const images = [
-        'https://i.pinimg.com/736x/3a/b6/f0/3ab6f061cbc449ee858188a9ff3f4b25.jpg',
-        'https://i.pinimg.com/736x/76/e6/cb/76e6cb3049c9bc5fbf4d691e37660b38.jpg'
-        
+    const banners = [
+        {
+            image: 'images/image10.jpeg',
+            title: 'Fashion Sale',
+            subtitle: 'Minimal Menz Style',
+            description: 'Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.',
+            button: 'Shop Now',
+        },
+        {
+            image: 'images/image7.jpg',
+            title: 'Fashion Sale',
+            subtitle: 'Minimal Menz Style',
+            description: 'Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.',
+            button: 'Shop Now',
+        },
     ];
 
-    const [slide, setSlide] = useState(0)
-    function nextInd() {
-        if (images.length - 1 == slide) {
-            setSlide(0)
-        } else {
-            setSlide(slide + 1)
-        }
-    }
-    function prevInd() {
-        if (slide == 0) {
-            setSlide(images.length - 1)
-        } else {
-            setSlide(slide - 1)
-        }
-    }
 
-    //    useEffect(() => {
-    //       let interval;
 
-    //       interval = setTimeout(()=>{
-    //         nextInd()
-    //       },2000);
+    const [cuurentIndex, setcurrentIndex] = useState(0);
 
-    //      return () => {
-    //        clearTimeout(interval)
-    //      }
-    //    }, [slide])
-
+    // const [slide, setSlide] = useState(0)
+    // function nextInd() {
+    //     if (images.length - 1 == slide) {
+    //         setSlide(0)
+    //     } else {
+    //         setSlide(slide + 1)
+    //     }
+    // }
+    // function prevInd() {
+    //     if (slide == 0) {
+    //         setSlide(images.length - 1)
+    //     } else {
+    //         setSlide(slide - 1)
+    //     }
+    // }
 
     return (
-        <>
-            <div>
 
-                <div className='absolute flex flex-row overflow-clip  '>
-                    <div onClick={() => { prevInd() }} className='text-6xl absolute  top-1/2 z-10  bg-gray-200 text-white  py-5  w-fit h-fit cursor-pointer' ><MdOutlineKeyboardArrowLeft /></div>
+        <div className='relative h-screen '>
+            <Carousel autoPlay
+                interval={3000}
+                showStatus={false}
+                infiniteLoop
+                showThumbs={false}
+                renderIndicator={false}
+                onChange={(index) => setImage(index)
+                }>
 
-                    <Carousel  autoPlay interval={1000} showStatus={false} infiniteLoop className='w-full' showThumbs={false} renderIndicator={false} showArrows={false}>
-                        {
-                            images.map((val, i) => {
-                                return (
-                                    <img src={val}  className='w-full'/>
-                                    // <img src={val} alt="" className={`h-100 w-screen absolute ${i == slide  ? "translate-x-0" : i < slide ?
-                                    //     "translate-x-[10000px]" : "-translate-x-[10000px]"} transition-all delay-75 duration-1000  top-0 }`}/>
-                                )
-                            })
-                        }
-                    </Carousel  >
+                {
+                    banners.map((banner, index) => (
+                        <div key={index} className='relative w-full h-screen'>
+                            <img src={banner.image} alt={banner.subtitle} className='w-full h-screen object-cover' />
 
-                    <div onClick={()=>{nextInd()}} className='text-6xl absolute top-1/2 right-0  bg-gray-200 text-white p-2  cursor-pointer' ><MdOutlineKeyboardArrowRight /></div>
-                </div>
+                            <div className={`absolute inset-y-0 flex items-center ${index%2 ===0  ? 'left-10' : 'right-10'}  p-4 max-w-md  rounded-lg`}>
+                            <div className={`text-${banner.position} text-white`}>
 
-
-            <div className='relative text-white'>
-                <div>Fashion Sale</div>
-                <div>Minimal Menz Style</div>
-                <div>Cohgk alhfajkhf afhjkdsfhkalhsf hfajfhahfujskljk</div>
-                <button>Shop Now</button>
-            </div>
-
-            </div>
-        </>
-    )
+                                    <h1 className="text-3xl md:text-4xl text-red-700 font-sans mb-4">
+                                        {banner.title}
+                                    </h1>
+                                    <h2 className=" md:text-4xl  font-semibold text-black  ">
+                                        {banner.subtitle}
+                                    </h2>
+                                    <p className="text-sm md:text-lg  mb-6 text-black">
+                                        {banner.description}
+                                    </p>
+                                    <button className="bg-white text-black px-6 py-3 text-lg rounded hover:bg-gray-700 hover:text-white transition duration-300">
+                                        {banner.button}
+                                    </button>
+                                </div>
+                            </div>
+                      </div>
+                    ))}
+            </Carousel>
+        </div>
+    );
 }
+
 export default Banner
-
-
-
-
-
-
-
-
-
-
-
-
-
 
