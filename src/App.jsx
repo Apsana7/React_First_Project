@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './Components/Navigation/Header'
+import Footer from './Components/Footer/Footer'
 import {Routes, Route} from 'react-router-dom'
 import Blog from './Pages/Blog'
 import Home from './Pages/Home'
@@ -12,13 +13,13 @@ import Men from './Pages/Men'
 import Women from './Pages/Women'
 import Pages from './Pages/Pages'
 
-
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
       <Header></Header>
+     
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/Blog' element={<Blog/>}></Route>
@@ -29,6 +30,7 @@ function App() {
         <Route path='/Women' element={<Women/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
       </Routes>
+      
     </>
   )
 }

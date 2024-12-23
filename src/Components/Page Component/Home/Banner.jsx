@@ -46,7 +46,7 @@ const Banner = () => {
 
     return (
 
-        <div className='relative h-screen '>
+        <div className='relative h-fit '>
             <Carousel autoPlay
                 interval={3000}
                 showStatus={false}
@@ -62,7 +62,7 @@ const Banner = () => {
                             <img src={banner.image} alt={banner.subtitle} className='w-full h-screen object-cover' />
 
                             <div className={`absolute inset-y-0 flex items-center ${index%2 ===0  ? 'left-10' : 'right-10'}  p-4 max-w-md  rounded-lg`}>
-                            <div className={`text-${banner.position} text-white`}>
+                                <div className={` text-white`}>
 
                                     <h1 className="text-3xl md:text-4xl text-red-700 font-sans mb-4">
                                         {banner.title}
